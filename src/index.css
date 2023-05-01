@@ -1,0 +1,205 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width:100%;
+  min-width: 60vh;
+  height: 80vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.loginContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.leftSideContainer{
+  width: 65%;
+}
+
+.rightSideContainer{
+  width: 50%;
+}
+
+.faethem-logo{
+  width: 15%;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.faethem-home{
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin-top: 10px;
+  padding-left: 50px;
+}
+.welcomeText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+.loginTextContinue{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -60px;
+
+}
+.inputText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.emailInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+button{
+  margin: 40px;
+  background-color: #00B5AC;
+  color: azure;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 8px;
+  width: 200px;
+}
+button:hover{
+  cursor: pointer;
+  background-color: blue;
+}
+
+.copyRightText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cookiesContent{
+  padding-top: 20px;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+  color: #3A5862;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homePageUpperNavbar{
+  display: flex;
+  height: 15vh;
+}
+
+.homePageLogo{
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.faethem-logo-home{
+  width: 18%;
+  transform: scale(2.8);
+}
+
+
+.homePageUpperTextContainer{
+  flex-basis: 70%;
+}
+
+.homePageListNavbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: inline;
+  list-style-type: none;
+  padding: 30px;
+}
+.homePageUpperTextAccount{
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li{
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  color: #3A5862;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homePageMainContentSplit{
+  display: flex;
+  height: 100%;
+}
+.homePageLeftNavbar{
+  flex-basis: 20%;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.homePageMainContent{
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.homePageMainContentImage{
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.homePageText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 30px;
+  color: #3A5862;
+  text-decoration: none;
+}
+
+.diplayDropdownItem{
+  height: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+  text-decoration: none;
+  border-color:#3A5862;
+}
+
+.displayDropDownItem{
+  height: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-decoration: none;
+  border: 1px solid black;
+}
