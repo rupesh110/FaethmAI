@@ -11,13 +11,14 @@ const TextPointer = ({text, className, onClick,  fontSize="17px", fontWeight, co
         marginLeft:  "10px",   
         fontWeight: fontWeight,
         cursor: "pointer",
-        paddung: "10px",
     }
+    const Icon = icon && <AppIcon icon={icon}/>;
+
     return(
         <div>
          
             <div style={style} className={className}  onClick= {onClick}>
-               
+                {Icon}
                 <p>{text}</p>
             </div>
             

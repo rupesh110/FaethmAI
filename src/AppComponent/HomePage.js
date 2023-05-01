@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { FiSettings } from "react-icons/fi";
 
 import FaethemLogo from "../assets/FaethemAI-logo.svg";
 import AppText from "../components/AppText";
@@ -22,16 +23,12 @@ export default function HomePage() {
         <TextPointer text={item} color="White"/>
     )
 
-    const navigate = useNavigate();
-    function handleAccountClicked(){
-        navigate("/account");
-    }
     return(
         <div className="homePageContainer">
      
             {/* have divided the page into 3 sections
-            1. upper navbar
-            2. left navbar
+            1. upper navbar - <HomePageUpperContent />
+            2. left navbar 
             3. main content*/}
 
             {/* This one is the upper navbar  */}
@@ -62,6 +59,7 @@ export default function HomePage() {
                         color="White"
                     />
                     {displayEmployees}
+                    <FiSettings />
                 </div>
 
                 {/* This one is the main content */}
