@@ -221,3 +221,7 @@ li{
   border-radius: 8px;
   background-color: rgba(193, 10, 10, 0.055);
 }
+
+pointer:hover{
+  color: #00B5AC;
+}
