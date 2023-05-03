@@ -8,33 +8,15 @@ import TextTitle from "../components/TextTitle";
 import TextInput from "../components/TextInput";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
+import { LoginComponent } from "./LoginPage/LoginComponent";
+
 
 export default function PasswordPage() {
-    const copyRightText = "© 2021 Faethem AI. All rights reserved.";
-    const privacyText = (
-        <span>
-            By continuing, you agree to the Faethem{" "}
-            <a href="https://www.faethm.ai/privacy" 
-                style={{ color: "#00B5AC", textDecoration: "none" }} 
-                target="_blank">
-                Privacy Policy
-            </a>. This site also uses cookies.
-        </span>
-    )
-
-
-    const cookiesText = (
-        <span>
-            See our{" "} 
-            <a href="https://f.hubspotusercontent30.net/hubfs/6540535/Information%20Security/FAETHM%20Cookie%20Policy.pdf" 
-                style={{color:"#00B5AC", textDecoration: "none"}} 
-                target="_blank">Cookies Policy 
-            </a>{" "}for further information.
-        </span>
-    )
+    const [copyRightText, privacyText, cookiesText, users, setUsers] = LoginComponent();
 
     const navigate = useNavigate();
     function handleLogin(){
+        alert(`Password: ${users.password}`);
         navigate("/home");
     }
     return(
@@ -70,6 +52,7 @@ export default function PasswordPage() {
                         text="Password"
                         placeholder="Password"
                         className="emailInput"
+                        onChange={(e) => setUsers({password: e.target.value})}
                     />
                     <AppButton 
                         text="Login"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 import FaethemLogo from "../assets/FaethemAI-logo.svg";
@@ -8,34 +8,27 @@ import TextTitle from "../components/TextTitle";
 import TextInput from "../components/TextInput";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
+import { LoginComponent } from "./LoginPage/LoginComponent";
+
+
+
+
 
 export default function LoginPage() {
-    const copyRightText = "© 2021 Faethem AI. All rights reserved.";
-    const privacyText = (
-        <span>
-            By continuing, you agree to the Faethem{" "}
-            <a href="https://www.faethm.ai/privacy" 
-                style={{ color: "#00B5AC", textDecoration: "none" }} 
-                target="_blank">
-                Privacy Policy
-            </a>. This site also uses cookies.
-        </span>
-    )
+    const [copyRightText, privacyText, cookiesText, users, setUsers] = LoginComponent();
 
+   
+    
+    // setUsers({email: "yeasfasdhfg s"})
+ 
 
-    const cookiesText = (
-        <span>
-            See our{" "} 
-            <a href="https://f.hubspotusercontent30.net/hubfs/6540535/Information%20Security/FAETHM%20Cookie%20Policy.pdf" 
-                style={{color:"#00B5AC", textDecoration: "none"}} 
-                target="_blank">Cookies Policy 
-            </a>{" "}for further information.
-        </span>
-    )
     const navigate = useNavigate();
     function handleContinue(){
+        alert(`Email: ${users.email}`);
         navigate("/password");
     }
+
+    
 
     return(
         <div className="loginContainer">
@@ -69,6 +62,7 @@ export default function LoginPage() {
                         text="Email"
                         placeholder="Email"
                         className="emailInput"
+                        onChange={(e) => setUsers({email: e.target.value})}
                     />
                     <AppButton 
                         text="Continue"
