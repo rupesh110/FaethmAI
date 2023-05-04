@@ -1,157 +1,139 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import React, { useState } from "react";
+
+import { useAuth0 } from "@auth0/auth0-react";
 
 import FaethemLogo from "../../assets/FaethemAI-logo.svg";
-import TextPointer from "../../components/TextPointer";
-
-
+import Navbar from "./Navbar";
+import NavbarAccount from "./NavbarAccount";
 
 export default function HomePageUpperContent() {
-    const [isOpenSolution, setIsOpenSolution] = useState(false);
-    const [solutions, setSolutions] = useState(["Solution 1", "Solution 2", "Solution 3"]);
-    
-    const [isOpenResource, setIsOpenResource] = useState(false);
-    const[Resources, setResources] = useState(["Resource 1", "Resource 2", "Resource 3"]);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-    const [isOpenContact, setIsOpenContact] = useState(false);
-    const [contact, setContact] = useState(["Contact 1", "Contact 2", "Contact 3"]);
+  const { logout } = useAuth0();
 
-    const [isAccountClicked, setIsAccountClicked] = useState(false);
-    const [account, setAccount] = useState(["Profile", "Manage Account", "Logout"]);
-    const navigate = useNavigate();
-    function handleAccountClicked(){
-       // navigate("/account");
-        setIsAccountClicked(!isAccountClicked);
+  const handleSelect = (event) => {
+    setSelectedOption(event.target.value);
+    alert(`Selected: ${event.target.value}`);
+  };
+
+  const services = [
+    {
+      title: "Service 1",
+      link: "https://www.faethm.ai/#Solutions",
+    },
+    {
+      title: "Service 2",
+      link: "https://react.dev/reference/react-dom/components/textarea#props",
+    },
+    {
+      title: "Service 3",
+      link: "https://www.example.com/service3",
+    },
+  ];
+
+
+  const products = [
+    {
+      title: "Labour Market Insights",
+      link: "https://www.faethm.ai/products/labour-market-insights",
+    },
+    {
+      title: "Strategic Workforce Planning",
+      link: "https://www.faethm.ai/products/strategic-workforce-planning",
+    },
+    {
+      title: "Technology Impact",
+      link: "https://www.faethm.ai/products/technology-impact",
+    },
+    {
+        title: "Future Capabilities",
+        link: "https://www.faethm.ai/products/future-capabilities",
+    },
+  ];
+  
+  const resources = [
+    {
+      title: "Customer Success Stories",
+      link: "hhttps://www.faethm.ai/customer-success-stories",
+    },
+    {
+      title: "Insights Blog",
+      link: "https://www.faethm.ai/blog",
+    },
+    {
+      title: "Product FactSheets",
+      link: "https://www.faethm.ai/product-factsheets",
+    },
+    {
+        title: "Research and Reports",
+        link: "https://www.faethm.ai/research-and-reports",
+    },
+    {
+        title: "Videos",
+        link: "https://www.faethm.ai/videos",
     }
-   
-    
-    const handleSolutionClicked= ()=>{
-        setIsOpenSolution(!isOpenSolution);
-        setIsOpenContact(false);
-        setIsOpenResource(false);
-    }
+  ];
 
-    const handleResourceClicked= ()=>{
-        setIsOpenResource(!isOpenResource);
-        setIsOpenSolution(false);
-        setIsOpenContact(false);
-    }
-
-    const handleContactClicked= ()=>{
-        setIsOpenContact(!isOpenContact);
-        setIsOpenSolution(false);
-        setIsOpenResource(false);
-    }
-
-    const displaySolutions = () => {
-        if (isOpenSolution) {
-          return (
-            <div className="homePageDropdown">
-              {solutions.map((item) => (
-                <TextPointer text={item} fontSize="17px" />
-              ))}
-            </div>
-          );
-        }
-      };
-     
-
-    const displayResources = () => {    
-        if(isOpenResource){
-            return (
-                <div className="homePageDropdown">
-                    {Resources.map((item) => (
-                        <TextPointer text={item} fontSize="17px" />
-                    ))}
-                </div>
-            );
-        };
-    }
-
-    const displayContact = () => {
-        if(isOpenContact){
-            return (
-                <div className="homePageDropdown">
-                    {contact.map((item) => (
-                        <TextPointer text={item} fontSize="17px" />
-                    ))}
-                </div>                   
-            );
-        };
-    }
-
-    const displayAccount = () => {
-        if(isAccountClicked){
-            return (
-                <div className="homePageDropdownAccount">
-                    {account.map((item) => (
-                        <TextPointer text={item} fontSize="17px" />
-                    ))}
-                </div>
-            );                   
-        };
+  const company = [
+    {
+        title: "About Us",
+        link: "https://www.faethm.ai/about-us",
+    },
+    {
+        title: "In the News",
+        link: "https://www.faethm.ai/news",
+    },
+    {
+        title: "Platform Status",
+        link: "https://status.faethm.ai/",
     }
 
-    return(
-        <div className="homePageUpperNavbar">
-            <div className="homePageLogo">
-                <img 
-                    src={FaethemLogo}
-                    alt="Faethem Logo"
-                    className="faethem-logo-home" 
-                />
-            </div>
-    
-            
-            <div className="homePageUpperTextContainer">
-                {/* need to add dropdown icon */}
-                {/* Planning to implement using AppIcon */}
-                <ul className="homePageListNavbar">
-                        <div className="dropdownTextDisplay">
-                            <TextPointer 
-                                text="Solutions" 
-                                fontSize="20px"
-                                onClick={handleSolutionClicked}
-                            />
-                            {displaySolutions()}
-                        </div>
+  ]
 
 
-                        <div className="dropdownTextDisplay">
-                            <TextPointer 
-                                text="Resources" 
-                                fontSize="20px"
-                                onClick={handleResourceClicked}
-                            />
-                            {displayResources()}
-                        </div>
-                        <div className="dropdownTextDisplay">
-                            <TextPointer 
-                                text="Contact" 
-                                fontSize="20px"
-                                
-                                onClick={handleContactClicked}
-                            />
-                            {displayContact()}
-                        </div>
-                </ul>
-            
-            </div>
+  const account = [
+    {
+      title: "Profile",
+      link: "https://www.faethm.ai/#Solutions",
+    },
+    {
+      title: "LogOut",
+      onClick: () => {
+        logout({ logoutParams: { returnTo: window.location.origin } });
+      },
+    },
+  ];
+  
 
-            <div className="homePageUpperTextAccount">
-                <div className="dropdownTextDisplay">
-                    <TextPointer
-                        text="Account"
-                        onClick={handleAccountClicked}
-                        fontSize="20px"
-                    />
-                    {displayAccount()}
-                </div>
-               
-               
-            </div> 
+  return (
+    <div className="homePageUpperNavbar">
+      <div className="homePageLogo">
+        <img src={FaethemLogo} alt="Faethem Logo" className="faethem-logo-home" />
+      </div>
+
+      <div className="homePageUpperTextContainer">
+        {/* need to add dropdown icon */}
+        {/* Planning to implement using AppIcon */}
+
+        <ul className="homePageListNavbar">
+          <div className="dropdownTextDisplay">
+            <Navbar title="Products" services={products} />
+          </div>
+
+          <div className="dropdownTextDisplay">
+            <Navbar title="Resources" services={resources} />
+          </div>
+          <div className="dropdownTextDisplay">
+            <Navbar title="Company" services={company} />
+          </div>
+        </ul>
+      </div>
+
+      <div className="homePageUpperTextAccount">
+        <div className="dropdownTextDisplay">
+          <NavbarAccount title="Account" account={account} />
         </div>
-    )
-
+      </div>
+    </div>
+  );
 }

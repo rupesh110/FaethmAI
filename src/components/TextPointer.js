@@ -2,7 +2,7 @@ import React from "react";
 import AppIcon from "./AppIcon";
 
 
-const TextPointer = ({text, className, onClick,  fontSize="17px", fontWeight, color="black", icon}) =>{
+const TextPointer = ({text, className, onClick, fontSize="17px", fontWeight, color="black", icon}) =>{
 
     const style={
         color: color,
@@ -12,13 +12,13 @@ const TextPointer = ({text, className, onClick,  fontSize="17px", fontWeight, co
         fontWeight: fontWeight,
         cursor: "pointer",
     }
+   
     const Icon = icon && <AppIcon icon={icon}/>;
 
     return(
         <div>
          
-            <div style={style} className={className}  onClick= {onClick}>
-                {Icon}
+            <div style={style} className={className} onClick= {onClick} >
                 <p>{text}</p>
             </div>
             

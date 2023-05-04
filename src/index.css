@@ -225,3 +225,25 @@ li{
 pointer:hover{
   color: #00B5AC;
 }
+.navbar {
+  position: relative;
+}
+
+.navbar:hover .services {
+  display: block;
+}
+
+.services {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 120px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  display: none;
+}
+
+.services li {
+  margin-bottom: 10px;
+}

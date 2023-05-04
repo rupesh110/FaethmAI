@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
 import AppText from "../components/AppText";
 import HomePageUpperContent from "./HomePageNavBarDisplay/HomePageUpperContent";
 import { useHooks } from "./HomePageContent/UseHooks";
@@ -14,8 +16,6 @@ export default function HomePage() {
 
   const [isDefault, setIsDefault] = useState(true);
   const [selectedValue, setSelectedValue] = useState(null);
-
-
 
   const handleTextClick = (value) => {
     setSelectedValue(value);
@@ -67,7 +67,7 @@ export default function HomePage() {
           />
           {displayEmployees}
         </div>
-
+       
         {/* This one is the main content */}
         <div className="homePageMainContent">
           {isDefault ? homePageDefault() : departmentStrength()}

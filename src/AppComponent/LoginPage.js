@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import FaethemLogo from "../assets/FaethemAI-logo.svg";
 import FaethemHome from "../assets/FaethmHome.svg";
@@ -10,25 +11,29 @@ import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 import { LoginComponent } from "./LoginPage/LoginComponent";
 
-
-
-
-
 export default function LoginPage() {
     const [copyRightText, privacyText, cookiesText, users, setUsers] = LoginComponent();
 
-   
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
     
     // setUsers({email: "yeasfasdhfg s"})
+
+   
+      
+       
  
 
     const navigate = useNavigate();
+    const { loginWithRedirect } = useAuth0();
+
+
+    isAuthenticated && navigate("/home");
     function handleContinue(){
-        alert(`Email: ${users.email}`);
-        navigate("/password");
+        //alert(`Email: ${users.email}`);
+        
+        navigate("/home");
     }
 
-    
 
     return(
         <div className="loginContainer">
@@ -58,15 +63,15 @@ export default function LoginPage() {
                     fontSize="20px"
                 />
                 <div className="inputText">
-                    <TextInput
+                    {/* <TextInput
                         text="Email"
                         placeholder="Email"
                         className="emailInput"
                         onChange={(e) => setUsers({email: e.target.value})}
-                    />
+                    /> */}
                     <AppButton 
-                        text="Continue"
-                        onClick={handleContinue}
+                        text="Login"
+                        onClick={() => loginWithRedirect()}
                     />
                 </div>
                 
